@@ -65,21 +65,15 @@ namespace CsevegesGUI {
 
         private void callerBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (calledBox.Text == null || calledBox.Text == null) return;
-            list.Items.Clear();
-            if (checkCalls(callerBox.Text, calledBox.Text).Count == 0)
-            {
-                list.Items.Add("Nem történt beszélgetés.");
-                return;
-            }
-            int index = 1;
-            foreach (var callElement in checkCalls(callerBox.Text, calledBox.Text))
-            {
-                list.Items.Add($"{index++}. {callElement}");
-            }
+            comboBoxChanged();
         }
 
         private void calledBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxChanged();
+        }
+
+        private void comboBoxChanged()
         {
             if (calledBox.Text == null || calledBox.Text == null) return;
             list.Items.Clear();
